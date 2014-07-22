@@ -18,13 +18,13 @@ buildscript {
     dependencies { classpath 'com.netflix.nebula:nebula-plugin-plugin:1.12.1' }
 }
 
-description 'A git implementation of the gradle-scm-plugin'
+description 'An svn implementation of the gradle-scm-plugin'
 apply plugin: 'nebula-plugin'
 apply plugin: 'gradle-dependency-lock'
 
 dependencies {
     compile 'com.netflix.nebula:gradle-scm-plugin:1.12.+'
-    compile 'org.ajoberstar:grgit:0.+'
+    compile 'org.tmatesoft.svnkit:svnkit:1.8.+'
     testCompile 'com.netflix.nebula:nebula-test:1.12.+'
 }
 

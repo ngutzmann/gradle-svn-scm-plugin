@@ -18,12 +18,18 @@ package nebula.plugin.scm.svn.providers
 import nebula.plugin.scm.providers.ScmProvider
 import org.gradle.api.logging.Logger
 import org.gradle.api.logging.Logging
+import org.tmatesoft.svn.core.wc.SVNClientManager
+import org.tmatesoft.svn.core.wc.ISVNOptions
+import org.tmatesoft.svn.core.wc.SVNWCUtil
 
 class SVNProvider extends ScmProvider {
     private static Logger logger = Logging.getLogger(SVNProvider)
-    
+    SVNClientManager svnClientManager
 
     SVNProvider(String rootDirectory) {
+        ISVNOptions options = SVNWCUtil.createDefaultOptions(true)
+        ISVNAuthenticationManager authManager = SVNWCUtil.createDefaultAuthenticationManager()
+        svnClientManager.newInstance(options)
         //repo = Grgit.open(rootDirectory)
     }
 
